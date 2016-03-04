@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment1.params=
+comment1.target=boolean\ moonMove()
+comment2.params=
+comment2.target=boolean\ moonScale()
+comment3.params=shakeAmount
+comment3.target=boolean\ moonShake(int)
+comment4.params=
+comment4.target=boolean\ doneShaking()
+comment5.params=
+comment5.target=void\ resetAtBottom()
+comment6.params=w
+comment6.target=void\ Stretch(int)
+numComments=7

@@ -1,0 +1,102 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Collection;
+/**
+ * Write a description of class Meteor here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Meteor extends Actor
+{
+
+     private String Name;
+     private String Sector;
+     
+     private int W; 
+     private int H; 
+     private int Size;
+     public int locX; 
+     public int locY;
+     
+     public boolean dropping=false;
+     public Factboard f;
+     
+     private String ff1; 
+     private String ff2;
+     private String ff3; 
+     private String ff4;
+
+    /**
+     * Act - do whatever the Meteor wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public Meteor(){
+    }
+    public Meteor(String mName,String mSector,
+                  int mW, int mH, int mSize,int locationX, int locationY,
+                  String funfact1, String funfact2, String funfact3, String funfact4){
+      Name=mName;
+      Sector=mSector;
+     
+     W=mW; 
+     H=mH;
+     Size=mSize;
+     setImage("rock.png");
+     locX=locationX;
+     locY=locationY;
+     ff1=funfact1;
+     ff2=funfact2;
+     ff3=funfact3;
+     ff4=funfact4;
+                
+    }
+    public void act() 
+    {
+       if (dropping) {
+         Stars s =(Stars)getWorld();
+         s.setDropping(true);
+         locY+=4;
+      setLocation(locX,locY);
+         Greenfoot.delay(10);
+     //    f.updateTrans(); Create this when each meteor created. Let it fade itself
+         Moon m=(Moon)getOneIntersectingObject(Moon.class);
+           if (m != null) {
+               explode();
+            }
+        }
+           
+    }    
+     public void drop() 
+    {
+      // Factboard f = new Factboard();
+       f.updateTrans();
+       getWorld().addObject(f,150,210);
+       f.setLabel(Name,Size,ff2);
+       while (locY<560){
+         locY+=4;
+         setLocation(locX,locY);
+         Greenfoot.delay(10);
+         f.updateTrans();
+        }
+         
+        }
+    
+    public void explode (){
+      //  dropping=false;
+       
+         List<Factboard> boards =  getWorld().getObjects(Factboard.class);
+            for (Factboard fb : boards)  {
+                 
+              getWorld().removeObject(fb);
+            }
+        
+         
+         Stars s =(Stars)getWorld();
+         s.setDropping(false);
+          getWorld().removeObject(this); 
+    }
+}

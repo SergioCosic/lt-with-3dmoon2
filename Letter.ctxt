@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=letter\ X\ Y
+comment0.target=Letter(java.lang.String,\ int,\ int)
+comment0.text=\ \ \ public\ Letter(){\r\n\ \ \ \ \ \ \ \ this("\ ");\r\n\ \ \ \ \ \ \ \ setLocation(letterStartX,letterStartY);\r\n}
+comment1.params=
+comment1.target=void\ act()
+comment2.params=letter
+comment2.target=void\ makeLetter(java.lang.String)
+comment3.params=
+comment3.target=int\ getWidth()
+numComments=4

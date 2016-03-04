@@ -1,0 +1,81 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
+import java.awt.Font;
+/**
+ * Write a description of class letter here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+
+public class Letter extends Actor
+{
+
+public static final float FONT_SIZE = 110.0f;
+public static final int WIDTH = 80;
+public static final int HEIGHT = 100;
+public int xLoc, yLoc;
+private int imgScale =100;
+private int imgTrans =255;
+
+ 
+ 
+ private Color bTrans =new Color(0,222,0,255);
+public String letter;
+    /**
+     * Act - do whatever the letter wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+ /*   public Letter(){
+        this(" ");
+        setLocation(letterStartX,letterStartY);
+    } */
+    public Letter(String letter,int X, int Y){
+        xLoc=X;
+        yLoc=Y;
+       makeLetter(letter);
+  //    setLocation(letterStartX,letterStartY);
+    } 
+        
+    public void act() 
+    {
+        // Add your action code here.
+        if (Greenfoot.getRandomNumber(20)<3){
+         GreenfootImage img = getImage();
+         int w=img.getWidth();
+         int h=img.getHeight();
+         img.scale(w-2,h-2);
+         img.setTransparency(imgTrans);
+         imgTrans= imgTrans-5; 
+         if (w<5) {
+           getWorld().removeObject(this);
+            }
+        }
+    }  
+    
+private void makeLetter(String letter) {
+//GreenfootImage image = new GreenfootImage(WIDTH, HEIGHT); 
+//GreenfootImage image = new GreenfootImage();  
+
+GreenfootImage image = new GreenfootImage(letter, 90,Color.BLUE, bTrans);
+/*
+  image.setColor(new Color(0, 0, 0, 0));
+image.fillRect(0, 0, WIDTH, HEIGHT);
+image.setTransparency(200);
+image.setColor(new Color(255, 255, 255, 100));
+  image.fillRect(5, 5, WIDTH-10, HEIGHT-10);
+Font font = image.getFont();
+font = font.deriveFont(FONT_SIZE);
+image.setFont(font);
+image.setColor(Color.BLUE);
+ 
+image.drawString(letter,5,90);
+*/
+setImage(image);
+
+}
+public int getWidth(){
+  GreenfootImage img = getImage();
+  return img.getWidth();
+}
+}

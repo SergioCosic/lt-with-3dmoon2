@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Factboard()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ updateTrans()
+comment3.params=n\ s\ t
+comment3.target=void\ setLabel(java.lang.String,\ int,\ java.lang.String)
+numComments=4
